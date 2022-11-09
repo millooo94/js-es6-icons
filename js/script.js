@@ -211,7 +211,6 @@ eleSelect.addEventListener('click', function(){
     
 
     if (eleSelect.value == arrOptions[0]) {
-
         eleRow.innerHTML = ''
         arrIcons.forEach(element => {
             eleRow.classList.add('row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'row-cols-lg-5', 'g-5')
@@ -276,7 +275,6 @@ eleSelect.addEventListener('click', function(){
     } else if (eleSelect.value == arrOptions[2]) {
 
         eleRow.innerHTML = ''
-
         arrVegetable.forEach(element => {
             eleRow.classList.add('row-cols-auto', 'row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'g-5', 'justify-content-center')
             const eleCol = document.createElement('div');
@@ -302,6 +300,34 @@ eleSelect.addEventListener('click', function(){
                 eleIcon.style.color = `#${arrColors[2]}`
             }
         });
+    } else {
+        eleRow.innerHTML = ''
+        arrUser.forEach(element => {
+            eleRow.classList.add('row-cols-auto', 'row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'g-5', 'justify-content-center')
+            const eleCol = document.createElement('div');
+            eleCol.classList.add('col');
+            eleRow.append(eleCol);
+            const iconContainer = document.createElement('div')
+            iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
+            eleCol.append(iconContainer)
+            eleIcon = document.createElement('i')
+            iconContainer.append(eleIcon)
+            eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+            eleIcon.classList.add()
+            const eleName = document.createElement('div')
+            eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+            eleName.innerHTML = element.name
+            eleName.style.fontFamily = ('Noto Sans JP')
+            iconContainer.append(eleName)
+            if(element.type == 'animal') {
+                eleIcon.style.color = `#${arrColors[0]}`
+            } else if(element.type == 'vegetable'){
+                eleIcon.style.color = `#${arrColors[1]}`
+            } else if (element.type == 'user') {
+                eleIcon.style.color = `#${arrColors[2]}`
+            }
+        });
+
     }
 })
 
