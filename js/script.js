@@ -1,6 +1,7 @@
 const eleContainer = document.querySelector('.container');
 const eleSelect = document.querySelector('#icons-selector');
 let randomColor = Math.floor(Math.random()*16777215).toString(16);
+const eleHeader = document.querySelector('header')
 
 
 
@@ -117,7 +118,27 @@ let arrIcons = [
 		family: 'fas',
 		color: 'blue'
 	}
-];
+
+]
+
+const arrOptions = [
+    'All',
+    'Animal',
+    'Vegetable',
+    'User',
+]
+
+eleSelect.value = ''
+
+for (let i = 0; i < arrOptions.length; i++) {
+    const eleOption = document.createElement('option')
+    eleOption.innerHTML = arrOptions[i]
+    eleSelect.append(eleOption)
+}
+
+
+
+
 
 const arrAnimals = arrIcons.filter((icon) => {
     if(icon.type == 'animal') {
@@ -149,16 +170,23 @@ eleRow.classList.add('row')
 eleContainer.append(eleRow)
 
 arrIcons.forEach(element => {
+    eleRow.classList.add('row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'row-cols-lg-5', 'g-5')
     const eleCol = document.createElement('div');
     eleCol.classList.add('col');
     eleRow.append(eleCol);
     const iconContainer = document.createElement('div')
+    iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
     eleCol.append(iconContainer)
     const eleIcon = document.createElement('i')
     iconContainer.append(eleIcon)
-    eleIcon.classList.add(`${element.family}`)
-    eleIcon.classList.add(`${element.prefix}${element.name}`)
-    eleIcon.style.color = randomColor
+    eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+    eleIcon.classList.add()
+    const eleName = document.createElement('div')
+    eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+    eleName.innerHTML = element.name
+    eleName.style.fontFamily = ('Noto Sans JP')
+    iconContainer.append(eleName)
+    eleIcon.style.color = element.color
 });
 
 
@@ -166,61 +194,81 @@ arrIcons.forEach(element => {
 eleSelect.addEventListener('click', function(){
     
 
-    if (eleSelect.value == 1) {
+    if (eleSelect.value == arrOptions[0]) {
 
         eleRow.innerHTML = ''
 
         arrIcons.forEach(element => {
+            eleRow.classList.add('row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'row-cols-lg-5', 'g-5')
             const eleCol = document.createElement('div');
             eleCol.classList.add('col');
             eleRow.append(eleCol);
             const iconContainer = document.createElement('div')
+            iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
             eleCol.append(iconContainer)
             const eleIcon = document.createElement('i')
             iconContainer.append(eleIcon)
-            eleIcon.classList.add(`${element.family}`)
-            eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = randomColor
-           
+            eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+            eleIcon.classList.add()
+            const eleName = document.createElement('div')
+            eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+            eleName.innerHTML = element.name
+            eleName.style.fontFamily = ('Noto Sans JP')
+            iconContainer.append(eleName)
+            eleIcon.style.color = element.color
         });
         
 
-    } else if (eleSelect.value == 2) {
+    } else if (eleSelect.value == arrOptions[1]) {
 
         eleRow.innerHTML = ''
 
         arrAnimals.forEach(element => {
+            eleRow.classList.add('row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'row-cols-lg-5', 'g-5')
             const eleCol = document.createElement('div');
             eleCol.classList.add('col');
             eleRow.append(eleCol);
             const iconContainer = document.createElement('div')
+            iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
             eleCol.append(iconContainer)
             const eleIcon = document.createElement('i')
             iconContainer.append(eleIcon)
-            eleIcon.classList.add(`${element.family}`)
-            eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = randomColor
+            eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+            eleIcon.classList.add()
+            const eleName = document.createElement('div')
+            eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+            eleName.innerHTML = element.name
+            eleName.style.fontFamily = ('Noto Sans JP')
+            iconContainer.append(eleName)
+            eleIcon.style.color = element.color
            
         });
 
 
 
-    } else if (eleSelect.value == 3) {
+    } else if (eleSelect.value == arrOptions[2]) {
 
         eleRow.innerHTML = ''
 
         arrVegetable.forEach(element => {
+            eleRow.classList.add('row-cols-auto', 'row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'g-5', 'justify-content-center')
 
             const eleCol = document.createElement('div');
             eleCol.classList.add('col');
             eleRow.append(eleCol);
             const iconContainer = document.createElement('div')
+            iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
             eleCol.append(iconContainer)
             const eleIcon = document.createElement('i')
             iconContainer.append(eleIcon)
-            eleIcon.classList.add(`${element.family}`)
-            eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = randomColor
+            eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+            eleIcon.classList.add()
+            const eleName = document.createElement('div')
+            eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+            eleName.innerHTML = element.name
+            eleName.style.fontFamily = ('Noto Sans JP')
+            iconContainer.append(eleName)
+            eleIcon.style.color = element.color
            
         });
 
@@ -231,16 +279,25 @@ eleSelect.addEventListener('click', function(){
 
         arrUser.forEach(element => {
 
+            eleRow.classList.add('row-cols-auto', 'row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'g-5', 'justify-content-center')
+            
+
             const eleCol = document.createElement('div');
             eleCol.classList.add('col');
             eleRow.append(eleCol);
             const iconContainer = document.createElement('div')
+            iconContainer.classList.add('icon-container', 'd-flex', 'justify-content-center', 'flex-wrap', 'p-3', 'rounded-2')
             eleCol.append(iconContainer)
             const eleIcon = document.createElement('i')
             iconContainer.append(eleIcon)
-            eleIcon.classList.add(`${element.family}`)
-            eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = randomColor
+            eleIcon.classList.add(`${element.family}`,`${element.prefix}${element.name}`, 'w-100', 'text-center', 'fs-1')
+            eleIcon.classList.add()
+            const eleName = document.createElement('div')
+            eleName.classList.add('text-uppercase', 'fw-semibold','my-text')
+            eleName.innerHTML = element.name
+            eleName.style.fontFamily = ('Noto Sans JP')
+            iconContainer.append(eleName)
+            eleIcon.style.color = element.color
         });
 
     }
