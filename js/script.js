@@ -4,7 +4,7 @@ let randomColor = Math.floor(Math.random()*16777215).toString(16);
 
 
 
-const arrIcons = [
+let arrIcons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -158,7 +158,7 @@ arrIcons.forEach(element => {
     iconContainer.append(eleIcon)
     eleIcon.classList.add(`${element.family}`)
     eleIcon.classList.add(`${element.prefix}${element.name}`)
-    eleIcon.style.color = `${element.color}`
+    eleIcon.style.color = randomColor
 });
 
 
@@ -180,7 +180,7 @@ eleSelect.addEventListener('click', function(){
             iconContainer.append(eleIcon)
             eleIcon.classList.add(`${element.family}`)
             eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = `${element.color}`
+            eleIcon.style.color = randomColor
            
         });
         
@@ -199,7 +199,7 @@ eleSelect.addEventListener('click', function(){
             iconContainer.append(eleIcon)
             eleIcon.classList.add(`${element.family}`)
             eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = `${element.color}`
+            eleIcon.style.color = randomColor
            
         });
 
@@ -220,7 +220,7 @@ eleSelect.addEventListener('click', function(){
             iconContainer.append(eleIcon)
             eleIcon.classList.add(`${element.family}`)
             eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = `${element.color}`
+            eleIcon.style.color = randomColor
            
         });
 
@@ -231,8 +231,6 @@ eleSelect.addEventListener('click', function(){
 
         arrUser.forEach(element => {
 
-            
-
             const eleCol = document.createElement('div');
             eleCol.classList.add('col');
             eleRow.append(eleCol);
@@ -242,7 +240,7 @@ eleSelect.addEventListener('click', function(){
             iconContainer.append(eleIcon)
             eleIcon.classList.add(`${element.family}`)
             eleIcon.classList.add(`${element.prefix}${element.name}`)
-            eleIcon.style.color = `${element.color}`
+            eleIcon.style.color = randomColor
         });
 
     }
