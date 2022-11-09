@@ -207,7 +207,7 @@ arrIcons.forEach(element => {
 
 
 
-eleSelect.addEventListener('click', function(){
+eleSelect.addEventListener('change', function(){
     
 
     if (eleSelect.value == arrOptions[0]) {
