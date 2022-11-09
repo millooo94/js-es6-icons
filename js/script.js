@@ -1,9 +1,7 @@
 const eleContainer = document.querySelector('.container');
 const eleSelect = document.querySelector('#icons-selector');
-let randomColor = Math.floor(Math.random()*16777215).toString(16);
+
 const eleHeader = document.querySelector('header')
-
-
 
 let arrIcons = [
 	{
@@ -118,8 +116,30 @@ let arrIcons = [
 		family: 'fas',
 		color: 'blue'
 	}
-
 ]
+
+
+let arrColors = []
+
+let randomColor
+
+for(let i = 0; i < 3; i++) {
+    do {
+        randomColor = Math.floor(Math.random()*16777215).toString(16);
+    } while (arrColors.includes(randomColor))
+    arrColors.push(randomColor)
+}
+
+arrIcons.forEach(element => {
+    if(element.type == 'animal') {
+        element.color = `#${arrColors[0]}`
+    } else if(element.type == 'vegetables'){
+        element.color = `#${arrColors[1]}`
+    } else if (element.type == 'user') {
+        element.color = `#${arrColors[2]}`
+    }
+})
+
 
 const arrOptions = [
     'All',
@@ -135,9 +155,6 @@ for (let i = 0; i < arrOptions.length; i++) {
     eleOption.innerHTML = arrOptions[i]
     eleSelect.append(eleOption)
 }
-
-
-
 
 
 const arrAnimals = arrIcons.filter((icon) => {
@@ -197,7 +214,6 @@ eleSelect.addEventListener('click', function(){
     if (eleSelect.value == arrOptions[0]) {
 
         eleRow.innerHTML = ''
-
         arrIcons.forEach(element => {
             eleRow.classList.add('row-cols-xsm-1','row-cols-sm-2', 'row-cols-md-4', 'row-cols-lg-5', 'g-5')
             const eleCol = document.createElement('div');
@@ -301,12 +317,6 @@ eleSelect.addEventListener('click', function(){
         });
 
     }
-
-
-
-
-
-
 })
 
 
